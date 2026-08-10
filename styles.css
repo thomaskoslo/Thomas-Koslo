@@ -97,7 +97,7 @@ nav a {
   color: var(--white);
   min-height: 100vh;
   overflow: hidden;
-  padding: 116px max(22px, calc((100vw - var(--max)) / 2)) 42px;
+  padding: 98px max(22px, calc((100vw - var(--max)) / 2)) 36px;
   position: relative;
 }
 
@@ -123,11 +123,11 @@ nav a {
 }
 
 .hero-grid {
-  align-items: end;
+  align-items: center;
   display: grid;
   gap: 42px;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  min-height: calc(100vh - 158px);
+  grid-template-columns: minmax(0, 1fr) 360px;
+  min-height: calc(100vh - 134px);
   position: relative;
   z-index: 2;
 }
@@ -161,10 +161,10 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(58px, 9vw, 126px);
-  line-height: 0.88;
-  margin-bottom: 28px;
-  max-width: 980px;
+  font-size: clamp(50px, 6.8vw, 92px);
+  line-height: 0.94;
+  margin-bottom: 24px;
+  max-width: 860px;
 }
 
 h2 {
@@ -189,7 +189,7 @@ p {
 }
 
 .hero-dek {
-  font-size: clamp(21px, 2vw, 30px);
+  font-size: clamp(19px, 1.85vw, 26px);
   max-width: 700px;
 }
 
@@ -197,7 +197,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 26px;
 }
 
 .button,
@@ -232,6 +232,40 @@ p {
   color: var(--white);
 }
 
+.hero-reel {
+  display: grid;
+  gap: 16px;
+}
+
+.hero-reel-card {
+  align-items: end;
+  aspect-ratio: 16 / 9;
+  background:
+    linear-gradient(180deg, rgba(5, 6, 7, 0.08), rgba(5, 6, 7, 0.82)),
+    url("assets/images/hero-production-still.png") center / cover;
+  border: 1px solid var(--line);
+  color: var(--white);
+  display: grid;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  padding: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.play-icon {
+  align-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--gold);
+  display: inline-flex;
+  height: 54px;
+  justify-content: center;
+  margin-bottom: auto;
+  width: 54px;
+}
+
 .hero-panel {
   border: 1px solid var(--line);
   display: grid;
@@ -262,32 +296,68 @@ p {
   line-height: 1.35;
 }
 
-.marquee-band {
+.brand-proof {
   background: #15191d;
   border-bottom: 1px solid var(--dark-line);
   border-top: 1px solid var(--dark-line);
   color: var(--bone);
   overflow: hidden;
-  padding: 16px 0;
+  padding: 26px max(22px, calc((100vw - var(--max)) / 2));
 }
 
-.marquee-track {
-  animation: marquee 24s linear infinite;
+.brand-proof .eyebrow {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.logo-strip {
+  align-items: center;
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-strip li {
+  align-items: center;
+  background: rgba(5, 6, 7, 0.34);
   display: flex;
-  gap: 42px;
-  min-width: max-content;
-  padding-left: 100%;
+  justify-content: center;
+  min-height: 78px;
+  padding: 18px;
 }
 
-.marquee-track span {
+.logo-strip img {
+  filter: grayscale(1) contrast(0.9) brightness(1.4);
+  max-height: 34px;
+  max-width: 124px;
+  opacity: 0.78;
+  object-fit: contain;
+}
+
+.logo-strip span {
+  color: rgba(245, 241, 232, 0.74);
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.positioning-band {
+  border-bottom: 1px solid var(--dark-line);
+  padding: clamp(42px, 6vw, 78px) max(22px, calc((100vw - var(--max)) / 2));
+  text-align: center;
+}
+
+.positioning-band p {
+  color: var(--white);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 28px;
-}
-
-@keyframes marquee {
-  to {
-    transform: translateX(-100%);
-  }
+  font-size: clamp(32px, 4vw, 58px);
+  line-height: 1.02;
+  margin: 0 auto;
+  max-width: 1050px;
 }
 
 .section {
@@ -326,6 +396,22 @@ p {
   text-decoration: none;
 }
 
+.reel-frame img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0.58;
+  position: absolute;
+  width: 100%;
+}
+
+.reel-frame::after {
+  background: linear-gradient(180deg, rgba(5, 6, 7, 0.12), rgba(5, 6, 7, 0.78));
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
 .scan-lines {
   background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 5px);
   inset: 0;
@@ -353,6 +439,7 @@ p {
   left: 22px;
   position: absolute;
   right: 22px;
+  z-index: 2;
 }
 
 .reel-meta span {
@@ -366,7 +453,7 @@ p {
 .case-grid {
   display: grid;
   gap: 18px;
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .case-card {
@@ -378,15 +465,24 @@ p {
 }
 
 .case-card-large {
-  grid-row: span 2;
-  min-height: 720px;
+  grid-column: span 2;
+  min-height: 620px;
 }
 
 .case-card a {
   color: inherit;
   display: grid;
   height: 100%;
+  position: relative;
   text-decoration: none;
+}
+
+.case-card a::after {
+  background: linear-gradient(180deg, rgba(5, 6, 7, 0.08), rgba(5, 6, 7, 0.88));
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
 }
 
 .case-number {
@@ -401,40 +497,17 @@ p {
 
 .case-visual {
   background: #1b2024;
+  height: 100%;
   inset: 0;
+  object-fit: cover;
   position: absolute;
   transform: scale(1.02);
   transition: transform 500ms ease;
+  width: 100%;
 }
 
 .case-card:hover .case-visual {
   transform: scale(1.06);
-}
-
-.case-visual::after {
-  background: linear-gradient(180deg, rgba(5, 6, 7, 0.08), rgba(5, 6, 7, 0.88));
-  content: "";
-  inset: 0;
-  position: absolute;
-}
-
-.visual-a {
-  background:
-    linear-gradient(120deg, rgba(184, 95, 58, 0.3), transparent),
-    repeating-linear-gradient(90deg, rgba(245, 241, 232, 0.07) 0 1px, transparent 1px 80px),
-    url("assets/images/hero-production-still.png") center / cover;
-}
-
-.visual-b {
-  background:
-    radial-gradient(circle at 30% 30%, rgba(111, 123, 130, 0.42), transparent 28%),
-    linear-gradient(135deg, #20262b, #050607);
-}
-
-.visual-c {
-  background:
-    radial-gradient(circle at 70% 22%, rgba(184, 95, 58, 0.38), transparent 25%),
-    linear-gradient(135deg, #171c21, #0a0b0c);
 }
 
 .case-copy {
@@ -451,16 +524,25 @@ p {
 }
 
 .capability-list {
-  border-top: 1px solid var(--dark-line);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .capability-list article {
-  align-items: start;
-  border-bottom: 1px solid var(--dark-line);
+  background: rgba(17, 21, 25, 0.62);
+  border: 1px solid var(--dark-line);
   display: grid;
-  gap: 24px;
-  grid-template-columns: 70px 260px minmax(0, 1fr);
-  padding: 28px 0;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  padding: 14px;
+}
+
+.capability-card img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
 }
 
 .capability-list span {
@@ -470,6 +552,7 @@ p {
 }
 
 .capability-list p {
+  font-size: 15px;
   margin-bottom: 0;
 }
 
@@ -524,11 +607,18 @@ p {
 }
 
 .about-band {
-  align-items: start;
+  align-items: center;
   border-top: 1px solid var(--dark-line);
   display: grid;
   gap: 42px;
-  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1fr);
+}
+
+.about-image img {
+  aspect-ratio: 4 / 3;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .about-band h2 {
@@ -536,8 +626,24 @@ p {
 }
 
 .about-band p:not(.eyebrow) {
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(18px, 1.55vw, 22px);
   max-width: 760px;
+}
+
+.working-style {
+  border-top: 1px solid var(--dark-line);
+  padding: clamp(54px, 7vw, 94px) max(22px, calc((100vw - var(--max)) / 2));
+  text-align: center;
+}
+
+.working-style div {
+  margin: 0 auto;
+  max-width: 920px;
+}
+
+.working-style p:not(.eyebrow) {
+  margin: 0 auto;
+  max-width: 720px;
 }
 
 .contact {
@@ -642,17 +748,19 @@ footer {
     max-width: 520px;
   }
 
+  .logo-strip,
+  .capability-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .case-card,
   .case-card-large {
+    grid-column: auto;
     min-height: 520px;
   }
 
   .capability-list article {
-    grid-template-columns: 52px 1fr;
-  }
-
-  .capability-list p {
-    grid-column: 2;
+    grid-template-columns: 1fr;
   }
 
   .logo-wall {
@@ -700,6 +808,11 @@ footer {
 
   .logo-wall {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .logo-strip,
+  .capability-list {
+    grid-template-columns: 1fr;
   }
 
   .logo-wall li {
