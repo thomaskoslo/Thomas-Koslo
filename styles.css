@@ -475,18 +475,6 @@ p {
   width: 100%;
 }
 
-.reel-modal-frame::after {
-  background: #000;
-  content: "";
-  height: 56px;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 58px;
-  z-index: 3;
-}
-
 .reel-modal-frame iframe {
   border: 0;
   display: block;
@@ -1193,11 +1181,6 @@ footer {
   .reel-modal-frame {
     aspect-ratio: 16 / 9;
     max-height: calc(100svh - 96px);
-  }
-
-  .reel-modal-frame::after {
-    height: 48px;
-    width: 50px;
   }
 
   .logo-wall {
