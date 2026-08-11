@@ -92,6 +92,11 @@ nav a {
   text-transform: uppercase;
 }
 
+nav a.nav-contact {
+  color: var(--gold);
+  text-shadow: 0 0 14px rgba(214, 174, 95, 0.55);
+}
+
 .hero {
   background: var(--black);
   color: var(--white);
@@ -286,54 +291,6 @@ p {
   display: block;
   font-size: 14px;
   line-height: 1.35;
-}
-
-.brand-proof {
-  background: #15191d;
-  border-bottom: 1px solid var(--dark-line);
-  border-top: 1px solid var(--dark-line);
-  color: var(--bone);
-  overflow: hidden;
-  padding: 26px max(22px, calc((100vw - var(--max)) / 2));
-}
-
-.brand-proof .eyebrow {
-  margin-bottom: 18px;
-  text-align: center;
-}
-
-.logo-strip {
-  align-items: center;
-  display: grid;
-  gap: 1px;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.logo-strip li {
-  align-items: center;
-  background: rgba(245, 241, 232, 0.92);
-  display: flex;
-  justify-content: center;
-  min-height: 78px;
-  padding: 18px;
-}
-
-.logo-strip img {
-  max-height: 34px;
-  max-width: 124px;
-  opacity: 1;
-  object-fit: contain;
-}
-
-.logo-strip span {
-  color: #111519;
-  font-size: 14px;
-  font-weight: 850;
-  line-height: 1.1;
-  text-align: center;
 }
 
 .positioning-band {
@@ -604,6 +561,11 @@ p {
   padding-right: max(22px, calc((100vw - var(--max)) / 2));
 }
 
+.clients .section-intro {
+  justify-items: center;
+  text-align: center;
+}
+
 .logo-wall {
   border-left: 1px solid var(--dark-line);
   border-top: 1px solid var(--dark-line);
@@ -834,7 +796,6 @@ footer {
     max-width: 520px;
   }
 
-  .logo-strip,
   .capability-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -916,7 +877,6 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .logo-strip,
   .capability-list {
     grid-template-columns: 1fr;
   }
