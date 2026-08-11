@@ -288,9 +288,11 @@ p {
   background: rgba(192, 154, 88, 0.92);
   border: 1px solid rgba(245, 241, 232, 0.22);
   color: var(--black);
+  justify-self: center;
   min-width: 0;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .value-card {
@@ -304,7 +306,7 @@ p {
   inset: 0;
   justify-content: center;
   opacity: 0;
-  padding: 28px;
+  padding: clamp(24px, 4vw, 38px);
   position: absolute;
   text-align: center;
   transform: translateY(10px);
@@ -321,9 +323,10 @@ p {
   color: #050607;
   display: block;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 46px;
+  font-size: clamp(40px, 4vw, 46px);
   line-height: 0.95;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .value-slide .metric::after {
@@ -342,6 +345,7 @@ p {
   font-weight: 650;
   line-height: 1.42;
   max-width: 390px;
+  text-align: center;
 }
 
 .reel-modal[hidden] {
@@ -987,6 +991,14 @@ footer {
 
   .hero-reel-card.is-playing {
     min-height: 0;
+  }
+
+  .value-card {
+    min-height: 238px;
+  }
+
+  .value-slide {
+    padding: 24px 20px;
   }
 
   .reel-embed {
