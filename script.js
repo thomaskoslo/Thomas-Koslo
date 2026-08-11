@@ -30,6 +30,7 @@ const sectionRailLinks = [...document.querySelectorAll("[data-scroll-target]")];
 const trackedSections = sectionRailLinks
   .map((link) => document.getElementById(link.dataset.scrollTarget))
   .filter(Boolean);
+let scrollRailTimer;
 
 const setActiveSection = (id) => {
   sectionRailLinks.forEach((link) => {
@@ -61,8 +62,27 @@ const updateScrollRail = () => {
   setActiveSection(activeId);
 };
 
-window.addEventListener("scroll", updateScrollRail, { passive: true });
+const wakeScrollRail = () => {
+  if (!sectionRail) return;
+
+  document.body.classList.add("is-using-scroll-rail");
+  window.clearTimeout(scrollRailTimer);
+  scrollRailTimer = window.setTimeout(() => {
+    document.body.classList.remove("is-using-scroll-rail");
+  }, 1100);
+};
+
+window.addEventListener(
+  "scroll",
+  () => {
+    updateScrollRail();
+    wakeScrollRail();
+  },
+  { passive: true }
+);
 window.addEventListener("resize", updateScrollRail);
+sectionRail?.addEventListener("pointerenter", wakeScrollRail);
+sectionRail?.addEventListener("focusin", wakeScrollRail);
 updateScrollRail();
 
 document.querySelector(".contact-card button")?.addEventListener("click", () => {

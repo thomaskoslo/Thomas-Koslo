@@ -117,11 +117,21 @@ nav a.nav-contact {
   --scroll-progress: 0%;
   display: grid;
   gap: 12px;
+  opacity: 0.18;
+  pointer-events: auto;
   position: fixed;
   right: max(12px, calc((100vw - var(--max)) / 2 - 58px));
   top: 50%;
   transform: translateY(-50%);
+  transition: opacity 260ms ease, filter 260ms ease;
   z-index: 18;
+}
+
+body.is-using-scroll-rail .section-rail,
+.section-rail:hover,
+.section-rail:focus-within {
+  filter: none;
+  opacity: 1;
 }
 
 .section-rail::before {
@@ -180,8 +190,9 @@ nav a.nav-contact {
   white-space: nowrap;
 }
 
-.section-rail a:hover span,
-.section-rail a.is-active span {
+.section-rail:hover a:hover span,
+.section-rail:focus-within a:focus span,
+body.is-using-scroll-rail .section-rail a.is-active span {
   opacity: 1;
   transform: translateX(0);
 }
@@ -938,6 +949,10 @@ footer {
     right: auto;
     top: auto;
     transform: translateX(-50%);
+  }
+
+  body:not(.is-using-scroll-rail) .section-rail:not(:hover):not(:focus-within) {
+    opacity: 0.22;
   }
 
   .section-rail::before {
