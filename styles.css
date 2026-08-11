@@ -437,6 +437,24 @@ p {
   max-width: none;
 }
 
+.work-overview {
+  align-self: end;
+  color: var(--gold);
+  font-size: clamp(13px, 1.15vw, 16px);
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.work-overview span {
+  color: rgba(192, 154, 88, 0.62);
+  display: inline-block;
+  margin: 0 1.15em;
+}
+
 .reel-intro {
   margin-bottom: 28px;
   margin-left: auto;
