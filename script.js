@@ -35,6 +35,39 @@ document.querySelector(".contact-card button")?.addEventListener("click", () => 
   window.location.href = `mailto:tomjkoslo@gmail.com?subject=${subject}&body=${body}`;
 });
 
+const valueSlides = [...document.querySelectorAll(".value-slide")];
+const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let valueSlideIndex = 0;
+let valueSlideTimer;
+
+const showValueSlide = (index) => {
+  valueSlides.forEach((slide, slideIndex) => {
+    const isActive = slideIndex === index;
+    slide.classList.toggle("is-active", isActive);
+    slide.setAttribute("aria-hidden", String(!isActive));
+  });
+};
+
+const startValueSlides = () => {
+  if (valueSlides.length < 2 || reduceMotionQuery.matches) return;
+
+  window.clearInterval(valueSlideTimer);
+  valueSlideTimer = window.setInterval(() => {
+    valueSlideIndex = (valueSlideIndex + 1) % valueSlides.length;
+    showValueSlide(valueSlideIndex);
+  }, 4000);
+};
+
+showValueSlide(valueSlideIndex);
+startValueSlides();
+
+reduceMotionQuery.addEventListener?.("change", () => {
+  window.clearInterval(valueSlideTimer);
+  valueSlideIndex = 0;
+  showValueSlide(valueSlideIndex);
+  startValueSlides();
+});
+
 const reelLaunch = document.querySelector(".reel-launch");
 const reelModal = document.querySelector(".reel-modal");
 const reelModalFrame = document.querySelector(".reel-modal-frame");

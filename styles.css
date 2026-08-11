@@ -285,29 +285,63 @@ p {
 }
 
 .hero-panel {
-  border: 1px solid var(--line);
-  display: grid;
+  background: rgba(192, 154, 88, 0.92);
+  border: 1px solid rgba(245, 241, 232, 0.22);
+  color: var(--black);
   min-width: 0;
+  overflow: hidden;
+  position: relative;
 }
 
-.hero-panel div {
-  padding: 22px;
+.value-card {
+  min-height: 208px;
+}
+
+.value-slide {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  justify-content: center;
+  opacity: 0;
+  padding: 28px;
+  position: absolute;
+  text-align: center;
+  transform: translateY(10px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.value-slide.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 1;
 }
 
 .metric {
-  color: var(--white);
+  color: #050607;
   display: block;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 46px;
   line-height: 0.95;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.value-slide .metric::after {
+  background: rgba(5, 6, 7, 0.42);
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 16px auto 0;
+  width: min(130px, 48%);
 }
 
 .hero-panel span:last-child {
-  color: rgba(245, 241, 232, 0.62);
+  color: rgba(5, 6, 7, 0.76);
   display: block;
-  font-size: 14px;
-  line-height: 1.35;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.42;
+  max-width: 390px;
 }
 
 .reel-modal[hidden] {
@@ -823,6 +857,10 @@ footer {
     animation-duration: 1ms !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
+  }
+
+  .value-slide {
+    transition: none;
   }
 }
 
