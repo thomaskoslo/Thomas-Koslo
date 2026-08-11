@@ -871,15 +871,21 @@ footer {
   }
 
   .hero {
-    padding-top: 132px;
+    padding-top: 120px;
   }
 
   .hero-grid {
-    min-height: calc(100vh - 174px);
+    min-height: auto;
   }
 
   h1 {
-    font-size: clamp(52px, 16vw, 78px);
+    font-size: clamp(38px, 10.8vw, 54px);
+    line-height: 0.98;
+  }
+
+  .hero-dek {
+    font-size: 18px;
+    line-height: 1.45;
   }
 
   .actions,
@@ -894,6 +900,10 @@ footer {
 
   .hero-reel-card {
     aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .hero-reel-card.is-playing {
     min-height: 0;
   }
 

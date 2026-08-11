@@ -35,13 +35,15 @@ document.querySelector(".contact-card button")?.addEventListener("click", () => 
   window.location.href = `mailto:tomjkoslo@gmail.com?subject=${subject}&body=${body}`;
 });
 
-document.querySelector(".reel-launch")?.addEventListener("click", (event) => {
-  const reel = event.currentTarget;
+const playReel = (reel) => {
   const src = reel.dataset.reelSrc;
 
   if (!src || reel.classList.contains("is-playing")) return;
 
   reel.classList.add("is-playing");
+  reel.removeAttribute("role");
+  reel.removeAttribute("tabindex");
+  reel.removeAttribute("aria-label");
   reel.innerHTML = `
     <iframe
       src="${src}"
@@ -49,4 +51,14 @@ document.querySelector(".reel-launch")?.addEventListener("click", (event) => {
       allow="autoplay; fullscreen"
       allowfullscreen></iframe>
   `;
+};
+
+document.querySelector(".reel-launch")?.addEventListener("click", (event) => {
+  playReel(event.currentTarget);
+});
+
+document.querySelector(".reel-launch")?.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  playReel(event.currentTarget);
 });
