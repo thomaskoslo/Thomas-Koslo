@@ -759,6 +759,34 @@ p {
   cursor: pointer;
 }
 
+.contact-direct {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-direct a {
+  align-items: center;
+  border: 1px solid var(--line);
+  color: var(--white);
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 850;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  min-height: 48px;
+  padding: 0 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.contact-direct a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
 footer {
   background: #050607;
   border-top: 1px solid var(--line);
@@ -880,6 +908,10 @@ footer {
 
   .logo-strip,
   .capability-list {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-direct {
     grid-template-columns: 1fr;
   }
 
