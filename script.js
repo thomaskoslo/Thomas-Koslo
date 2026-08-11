@@ -25,66 +25,6 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-const sectionRail = document.querySelector(".section-rail");
-const sectionRailLinks = [...document.querySelectorAll("[data-scroll-target]")];
-const trackedSections = sectionRailLinks
-  .map((link) => document.getElementById(link.dataset.scrollTarget))
-  .filter(Boolean);
-let scrollRailTimer;
-
-const setActiveSection = (id) => {
-  sectionRailLinks.forEach((link) => {
-    const isActive = link.dataset.scrollTarget === id;
-    link.classList.toggle("is-active", isActive);
-    if (isActive) {
-      link.setAttribute("aria-current", "location");
-    } else {
-      link.removeAttribute("aria-current");
-    }
-  });
-};
-
-const updateScrollRail = () => {
-  if (!sectionRail || !trackedSections.length) return;
-
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-  const viewportPoint = window.innerHeight * 0.38;
-  let activeId = trackedSections[0].id;
-
-  trackedSections.forEach((section) => {
-    if (section.getBoundingClientRect().top <= viewportPoint) {
-      activeId = section.id;
-    }
-  });
-
-  sectionRail.style.setProperty("--scroll-progress", `${Math.min(100, Math.max(0, progress))}%`);
-  setActiveSection(activeId);
-};
-
-const wakeScrollRail = () => {
-  if (!sectionRail) return;
-
-  document.body.classList.add("is-using-scroll-rail");
-  window.clearTimeout(scrollRailTimer);
-  scrollRailTimer = window.setTimeout(() => {
-    document.body.classList.remove("is-using-scroll-rail");
-  }, 1100);
-};
-
-window.addEventListener(
-  "scroll",
-  () => {
-    updateScrollRail();
-    wakeScrollRail();
-  },
-  { passive: true }
-);
-window.addEventListener("resize", updateScrollRail);
-sectionRail?.addEventListener("pointerenter", wakeScrollRail);
-sectionRail?.addEventListener("focusin", wakeScrollRail);
-updateScrollRail();
-
 document.querySelector(".contact-card button")?.addEventListener("click", () => {
   const form = document.querySelector(".contact-card");
   const name = form?.querySelector("[name='name']")?.value || "your name";
