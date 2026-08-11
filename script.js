@@ -95,30 +95,59 @@ document.querySelector(".contact-card button")?.addEventListener("click", () => 
   window.location.href = `mailto:tomjkoslo@gmail.com?subject=${subject}&body=${body}`;
 });
 
-const playReel = (reel) => {
+const reelLaunch = document.querySelector(".reel-launch");
+const reelModal = document.querySelector(".reel-modal");
+const reelModalFrame = document.querySelector(".reel-modal-frame");
+const reelOpenLink = document.querySelector(".reel-open-link");
+const reelCloseButton = document.querySelector(".reel-close");
+
+const closeReel = () => {
+  if (!reelModal || !reelModalFrame) return;
+
+  reelModal.hidden = true;
+  reelModalFrame.innerHTML = "";
+  document.body.classList.remove("has-reel-modal");
+  reelLaunch?.focus();
+};
+
+const openReel = (reel) => {
   const src = reel.dataset.reelSrc;
+  const link = reel.dataset.reelLink || src;
 
-  if (!src || reel.classList.contains("is-playing")) return;
+  if (!src || !reelModal || !reelModalFrame) return;
 
-  reel.classList.add("is-playing");
-  reel.removeAttribute("role");
-  reel.removeAttribute("tabindex");
-  reel.removeAttribute("aria-label");
-  reel.innerHTML = `
+  if (reelOpenLink && link) {
+    reelOpenLink.href = link;
+  }
+
+  reelModal.hidden = false;
+  document.body.classList.add("has-reel-modal");
+  reelModalFrame.innerHTML = `
     <iframe
       src="${src}"
       title="Thomas Koslo 2026 reel"
-      allow="autoplay; fullscreen"
+      allow="autoplay; fullscreen; picture-in-picture"
       allowfullscreen></iframe>
   `;
+  reelCloseButton?.focus();
 };
 
-document.querySelector(".reel-launch")?.addEventListener("click", (event) => {
-  playReel(event.currentTarget);
+reelLaunch?.addEventListener("click", (event) => {
+  openReel(event.currentTarget);
 });
 
-document.querySelector(".reel-launch")?.addEventListener("keydown", (event) => {
+reelLaunch?.addEventListener("keydown", (event) => {
   if (event.key !== "Enter" && event.key !== " ") return;
   event.preventDefault();
-  playReel(event.currentTarget);
+  openReel(event.currentTarget);
+});
+
+document.querySelectorAll("[data-reel-close]").forEach((control) => {
+  control.addEventListener("click", closeReel);
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && reelModal && !reelModal.hidden) {
+    closeReel();
+  }
 });

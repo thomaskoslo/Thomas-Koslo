@@ -34,6 +34,10 @@ body {
   overflow-x: hidden;
 }
 
+body.has-reel-modal {
+  overflow: hidden;
+}
+
 body::-webkit-scrollbar {
   width: 10px;
 }
@@ -404,6 +408,83 @@ p {
   display: block;
   font-size: 14px;
   line-height: 1.35;
+}
+
+.reel-modal[hidden] {
+  display: none;
+}
+
+.reel-modal {
+  align-items: center;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: clamp(14px, 3vw, 38px);
+  position: fixed;
+  z-index: 60;
+}
+
+.reel-modal-backdrop {
+  background: rgba(5, 6, 7, 0.88);
+  inset: 0;
+  position: absolute;
+}
+
+.reel-modal-panel {
+  background: #050607;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.58);
+  display: grid;
+  gap: 12px;
+  max-height: calc(100svh - 28px);
+  max-width: 1180px;
+  padding: 12px;
+  position: relative;
+  width: min(100%, 1180px);
+  z-index: 2;
+}
+
+.reel-modal-actions {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.reel-open-link,
+.reel-close {
+  background: rgba(245, 241, 232, 0.08);
+  border: 1px solid var(--line);
+  color: var(--white);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  min-height: 40px;
+  padding: 0 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.reel-open-link {
+  align-items: center;
+  display: inline-flex;
+}
+
+.reel-modal-frame {
+  aspect-ratio: 16 / 9;
+  background: #000;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.reel-modal-frame iframe {
+  border: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .positioning-band {
@@ -1078,6 +1159,34 @@ footer {
   .reel-embed {
     aspect-ratio: 16 / 9;
     min-height: 0;
+  }
+
+  .reel-modal {
+    align-items: start;
+    padding: 10px;
+  }
+
+  .reel-modal-panel {
+    margin-top: 10px;
+    max-height: calc(100svh - 20px);
+    padding: 10px;
+  }
+
+  .reel-modal-actions {
+    justify-content: space-between;
+  }
+
+  .reel-open-link,
+  .reel-close {
+    flex: 1;
+    justify-content: center;
+    min-height: 44px;
+    text-align: center;
+  }
+
+  .reel-modal-frame {
+    aspect-ratio: 16 / 9;
+    max-height: calc(100svh - 96px);
   }
 
   .logo-wall {
