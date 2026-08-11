@@ -32,5 +32,21 @@ document.querySelector(".contact-card button")?.addEventListener("click", () => 
   const project = form?.querySelector("[name='project']")?.value || "project details";
   const subject = encodeURIComponent("Production inquiry for Thomas Koslo");
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nProject:\n${project}`);
-  window.location.href = `mailto:hello@tomjkoslo.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:tomjkoslo@gmail.com?subject=${subject}&body=${body}`;
+});
+
+document.querySelector(".reel-launch")?.addEventListener("click", (event) => {
+  const reel = event.currentTarget;
+  const src = reel.dataset.reelSrc;
+
+  if (!src || reel.classList.contains("is-playing")) return;
+
+  reel.classList.add("is-playing");
+  reel.innerHTML = `
+    <iframe
+      src="${src}"
+      title="Thomas Koslo 2026 reel"
+      allow="autoplay; fullscreen"
+      allowfullscreen></iframe>
+  `;
 });
