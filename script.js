@@ -98,7 +98,6 @@ document.querySelector(".contact-card button")?.addEventListener("click", () => 
 const reelLaunch = document.querySelector(".reel-launch");
 const reelModal = document.querySelector(".reel-modal");
 const reelModalFrame = document.querySelector(".reel-modal-frame");
-const reelOpenLink = document.querySelector(".reel-open-link");
 const reelCloseButton = document.querySelector(".reel-close");
 
 const closeReel = () => {
@@ -112,13 +111,8 @@ const closeReel = () => {
 
 const openReel = (reel) => {
   const src = reel.dataset.reelSrc;
-  const link = reel.dataset.reelLink || src;
 
   if (!src || !reelModal || !reelModalFrame) return;
-
-  if (reelOpenLink && link) {
-    reelOpenLink.href = link;
-  }
 
   reelModal.hidden = false;
   document.body.classList.add("has-reel-modal");

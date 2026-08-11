@@ -451,7 +451,6 @@ p {
   justify-content: flex-end;
 }
 
-.reel-open-link,
 .reel-close {
   background: rgba(245, 241, 232, 0.08);
   border: 1px solid var(--line);
@@ -467,17 +466,25 @@ p {
   text-transform: uppercase;
 }
 
-.reel-open-link {
-  align-items: center;
-  display: inline-flex;
-}
-
 .reel-modal-frame {
   aspect-ratio: 16 / 9;
   background: #000;
   min-height: 0;
   overflow: hidden;
+  position: relative;
   width: 100%;
+}
+
+.reel-modal-frame::after {
+  background: #000;
+  content: "";
+  height: 56px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 58px;
+  z-index: 3;
 }
 
 .reel-modal-frame iframe {
@@ -1176,17 +1183,21 @@ footer {
     justify-content: space-between;
   }
 
-  .reel-open-link,
   .reel-close {
-    flex: 1;
     justify-content: center;
     min-height: 44px;
     text-align: center;
+    width: 100%;
   }
 
   .reel-modal-frame {
     aspect-ratio: 16 / 9;
     max-height: calc(100svh - 96px);
+  }
+
+  .reel-modal-frame::after {
+    height: 48px;
+    width: 50px;
   }
 
   .logo-wall {
