@@ -777,6 +777,40 @@ p {
   max-width: 150px;
 }
 
+.logo-wall img.logo-bloomberg {
+  max-height: 44px;
+  max-width: 172px;
+}
+
+.logo-wall img.logo-halo,
+.logo-wall img.logo-white-claw,
+.logo-wall img.logo-adobe,
+.logo-wall img.logo-rmng,
+.logo-wall img.logo-bmw {
+  max-height: 54px;
+}
+
+.logo-wall img.logo-adobe,
+.logo-wall img.logo-bmw {
+  max-width: 164px;
+}
+
+.logo-wall img.logo-halo,
+.logo-wall img.logo-white-claw,
+.logo-wall img.logo-rmng {
+  max-width: 96px;
+}
+
+.logo-wall img.logo-tums {
+  max-height: 48px;
+  max-width: 156px;
+  mix-blend-mode: multiply;
+}
+
+.logo-wall img.logo-blsyw {
+  mix-blend-mode: multiply;
+}
+
 .logo-wall li:hover img {
   transform: translateY(-2px);
 }
@@ -787,6 +821,38 @@ p {
   font-weight: 850;
   line-height: 1.12;
   text-shadow: none;
+}
+
+.subaru-lockup {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+}
+
+.subaru-emblem {
+  display: block;
+  height: 38px;
+  overflow: hidden;
+  position: relative;
+  width: 52px;
+}
+
+.subaru-emblem img {
+  height: 38px;
+  left: 0;
+  max-height: none;
+  max-width: none;
+  position: absolute;
+  top: 0;
+  width: auto;
+}
+
+.subaru-wordmark {
+  color: #111519;
+  font-size: 22px;
+  font-weight: 950;
+  letter-spacing: -0.06em;
+  line-height: 1;
 }
 
 .about-band {
