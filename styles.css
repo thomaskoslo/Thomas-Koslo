@@ -734,44 +734,45 @@ p {
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.48), 0 0 42px rgba(192, 154, 88, 0.14);
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
+  gap: 16px;
   justify-content: center;
   list-style: none;
   margin: 0;
-  overflow: hidden;
-  padding: 10px;
+  overflow: visible;
+  padding: clamp(22px, 4vw, 42px);
 }
 
 .logo-wall li {
   align-items: center;
-  background: transparent;
-  border: 1px solid rgba(245, 241, 232, 0.06);
+  background: rgba(245, 241, 232, 0.96);
+  border: 1px solid rgba(232, 190, 105, 0.72);
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(232, 190, 105, 0.2), 0 12px 24px rgba(0, 0, 0, 0.32);
   display: flex;
-  flex: 1 1 176px;
+  flex: 0 0 clamp(170px, 14vw, 208px);
   justify-content: center;
-  max-width: 220px;
-  min-height: 112px;
-  padding: 20px;
+  min-height: 74px;
+  padding: 14px 24px;
   text-align: center;
 }
 
 .logo-wall img {
-  max-height: 38px;
-  max-width: 142px;
+  max-height: 34px;
+  max-width: 138px;
   opacity: 1;
   object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(245, 241, 232, 0.22)) drop-shadow(0 10px 18px rgba(0, 0, 0, 0.38));
+  filter: none;
   transition: transform 180ms ease;
 }
 
 .logo-wall img.logo-mark {
-  max-height: 56px;
+  max-height: 46px;
   max-width: 72px;
 }
 
 .logo-wall img.logo-wide {
-  max-height: 52px;
-  max-width: 162px;
+  max-height: 42px;
+  max-width: 150px;
 }
 
 .logo-wall li:hover img {
@@ -779,11 +780,11 @@ p {
 }
 
 .logo-wall span {
-  color: var(--white);
-  font-size: 15px;
+  color: #111519;
+  font-size: 14px;
   font-weight: 850;
   line-height: 1.12;
-  text-shadow: 0 0 12px rgba(192, 154, 88, 0.28);
+  text-shadow: none;
 }
 
 .about-band {
@@ -1096,8 +1097,8 @@ footer {
   }
 
   .logo-wall li {
-    flex-basis: calc(50% - 1px);
-    min-height: 92px;
+    flex-basis: min(100%, 210px);
+    min-height: 72px;
   }
 
   footer {
