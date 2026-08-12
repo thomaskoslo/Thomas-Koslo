@@ -151,14 +151,19 @@ nav a.nav-contact {
   align-items: center;
   display: grid;
   gap: 42px;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 500px);
+  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 1fr);
+  margin: 0 auto;
+  max-width: var(--max);
   min-height: calc(100vh - 134px);
   position: relative;
+  width: 100%;
   z-index: 2;
 }
 
 .hero-copy {
+  justify-self: center;
   max-width: 880px;
+  text-align: center;
 }
 
 .eyebrow {
@@ -189,6 +194,8 @@ h1 {
   font-size: clamp(44px, 5.2vw, 74px);
   line-height: 0.98;
   margin-bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 780px;
 }
 
@@ -215,6 +222,8 @@ p {
 
 .hero-dek {
   font-size: clamp(18px, 1.45vw, 22px);
+  margin-left: auto;
+  margin-right: auto;
   max-width: 680px;
 }
 
@@ -222,6 +231,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  justify-content: center;
   margin-top: 26px;
 }
 
@@ -260,7 +270,9 @@ p {
 .hero-reel {
   display: grid;
   gap: 16px;
+  justify-self: stretch;
   min-width: 0;
+  width: 100%;
 }
 
 .hero-reel-card {
@@ -278,6 +290,7 @@ p {
   padding: 0;
   text-decoration: none;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .hero-reel-card img {
@@ -286,9 +299,10 @@ p {
 
 .hero-panel {
   background: rgba(192, 154, 88, 0.92);
-  border: 1px solid rgba(245, 241, 232, 0.22);
+  border: 1px solid rgba(232, 190, 105, 0.68);
+  box-shadow: 0 0 0 1px rgba(232, 190, 105, 0.16), 0 0 30px rgba(232, 190, 105, 0.24);
   color: var(--black);
-  justify-self: center;
+  justify-self: stretch;
   min-width: 0;
   overflow: hidden;
   position: relative;
@@ -338,13 +352,13 @@ p {
   width: min(130px, 48%);
 }
 
-.hero-panel span:last-child {
-  color: rgba(5, 6, 7, 0.76);
+.value-slide span:last-child {
+  color: var(--white);
   display: block;
-  font-size: 15px;
+  font-size: clamp(16px, 1.45vw, 18px);
   font-weight: 650;
-  line-height: 1.42;
-  max-width: 390px;
+  line-height: 1.45;
+  max-width: 520px;
   text-align: center;
 }
 
@@ -429,8 +443,11 @@ p {
 }
 
 .section-intro {
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: clamp(34px, 5vw, 70px);
   max-width: 880px;
+  text-align: center;
 }
 
 .section-intro.split {
@@ -438,6 +455,7 @@ p {
   display: grid;
   gap: 32px;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+  justify-items: center;
   max-width: none;
 }
 
@@ -479,6 +497,7 @@ p {
   overflow: hidden;
   position: relative;
   text-decoration: none;
+  width: 100%;
 }
 
 .reel-frame img {
@@ -909,10 +928,6 @@ footer {
   .contact,
   .about-band {
     grid-template-columns: 1fr;
-  }
-
-  .hero-panel {
-    max-width: 520px;
   }
 
   .capability-list {
