@@ -122,7 +122,7 @@ nav a.nav-contact {
   color: var(--white);
   min-height: 100vh;
   overflow: hidden;
-  padding: 98px max(22px, calc((100vw - var(--max)) / 2)) 36px;
+  padding: 98px clamp(22px, 5vw, 92px) 36px;
   position: relative;
 }
 
@@ -151,9 +151,10 @@ nav a.nav-contact {
   align-items: center;
   display: grid;
   gap: 42px;
-  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-items: center;
   margin: 0 auto;
-  max-width: var(--max);
+  max-width: 1480px;
   min-height: calc(100vh - 134px);
   position: relative;
   width: 100%;
@@ -162,8 +163,9 @@ nav a.nav-contact {
 
 .hero-copy {
   justify-self: center;
-  max-width: 880px;
+  max-width: 680px;
   text-align: center;
+  width: 100%;
 }
 
 .eyebrow {
@@ -196,7 +198,7 @@ h1 {
   margin-bottom: 24px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 780px;
+  max-width: 680px;
 }
 
 h2 {
@@ -270,7 +272,8 @@ p {
 .hero-reel {
   display: grid;
   gap: 16px;
-  justify-self: stretch;
+  justify-self: center;
+  max-width: 680px;
   min-width: 0;
   width: 100%;
 }
