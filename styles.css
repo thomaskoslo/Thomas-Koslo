@@ -661,11 +661,31 @@ p {
 
 .capability-list article {
   background: rgba(17, 21, 25, 0.62);
-  border: 1px solid var(--dark-line);
+  border: 1px solid rgba(192, 154, 88, 0.22);
+  box-shadow: 0 0 24px rgba(192, 154, 88, 0.1), 0 18px 38px rgba(0, 0, 0, 0.26);
   display: grid;
   gap: 12px;
   grid-template-columns: 1fr;
   padding: 14px;
+  position: relative;
+}
+
+.capability-list article::before,
+.capability-list article::after {
+  background: linear-gradient(90deg, transparent, rgba(232, 190, 105, 0.9), transparent);
+  content: "";
+  height: 1px;
+  left: 14px;
+  position: absolute;
+  right: 14px;
+}
+
+.capability-list article::before {
+  top: 0;
+}
+
+.capability-list article::after {
+  bottom: 0;
 }
 
 .capability-card img {
