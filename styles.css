@@ -565,13 +565,17 @@ p {
 }
 
 .play-button {
-  background: var(--white);
+  backdrop-filter: blur(12px);
+  background: rgba(5, 6, 7, 0.34);
+  border: 1px solid rgba(245, 241, 232, 0.7);
   border-radius: 999px;
-  color: var(--black);
+  bottom: 28px;
+  color: var(--white);
   font-weight: 850;
   letter-spacing: 0.08em;
-  padding: 18px 22px;
-  position: relative;
+  padding: 15px 22px;
+  position: absolute;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.44);
   text-transform: uppercase;
   z-index: 2;
 }
