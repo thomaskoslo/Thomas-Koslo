@@ -745,8 +745,8 @@ p {
 .logo-wall li {
   align-items: center;
   background:
-    radial-gradient(ellipse at center, rgba(245, 241, 232, 0.98) 0%, rgba(245, 241, 232, 0.98) 54%, rgba(245, 241, 232, 0.82) 78%, rgba(232, 190, 105, 0.3) 100%),
-    linear-gradient(135deg, rgba(255, 252, 244, 0.98), rgba(228, 220, 204, 0.86));
+    radial-gradient(ellipse at center, rgba(255, 252, 244, 1) 0%, rgba(255, 252, 244, 0.98) 48%, rgba(246, 237, 216, 0.86) 68%, rgba(214, 174, 95, 0.5) 86%, rgba(214, 174, 95, 0.18) 100%),
+    linear-gradient(90deg, rgba(214, 174, 95, 0.2), rgba(255, 252, 244, 0.98) 28%, rgba(255, 252, 244, 0.98) 72%, rgba(214, 174, 95, 0.2));
   border: 1px solid rgba(232, 190, 105, 0.72);
   border-radius: 999px;
   box-shadow: inset 0 0 18px rgba(192, 154, 88, 0.16), 0 0 18px rgba(232, 190, 105, 0.22), 0 12px 24px rgba(0, 0, 0, 0.32);
