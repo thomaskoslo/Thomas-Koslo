@@ -1054,7 +1054,9 @@ footer {
   }
 
   .logo-wall {
+    gap: 8px;
     justify-content: center;
+    padding: 14px;
   }
 
   .logo-wall li {
@@ -1170,8 +1172,49 @@ footer {
   }
 
   .logo-wall li {
-    flex-basis: min(100%, 210px);
-    min-height: 72px;
+    flex-basis: calc((100% - 16px) / 3);
+    min-height: 58px;
+    padding: 8px 10px;
+  }
+
+  .logo-wall img,
+  .logo-wall img.logo-bloomberg,
+  .logo-wall img.logo-halo,
+  .logo-wall img.logo-white-claw,
+  .logo-wall img.logo-adobe,
+  .logo-wall img.logo-rmng,
+  .logo-wall img.logo-bmw,
+  .logo-wall img.logo-tums,
+  .logo-wall img.logo-mabc,
+  .logo-wall img.logo-wide {
+    max-height: 28px;
+    max-width: 76px;
+  }
+
+  .logo-wall img.logo-mark {
+    max-height: 34px;
+    max-width: 52px;
+  }
+
+  .logo-wall span {
+    font-size: 10px;
+  }
+
+  .subaru-lockup {
+    gap: 5px;
+  }
+
+  .subaru-emblem {
+    height: 24px;
+    width: 32px;
+  }
+
+  .subaru-emblem img {
+    height: 24px;
+  }
+
+  .subaru-wordmark {
+    font-size: 12px;
   }
 
   footer {
