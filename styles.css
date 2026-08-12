@@ -605,8 +605,12 @@ p {
 }
 
 .case-card-large {
-  grid-column: span 2;
-  min-height: 620px;
+  grid-column: auto;
+  min-height: 480px;
+}
+
+.case-grid .case-card:last-child:nth-child(3n + 1) {
+  grid-column: 2;
 }
 
 .case-card a {
@@ -965,6 +969,10 @@ footer {
   .case-card-large {
     grid-column: auto;
     min-height: 520px;
+  }
+
+  .case-grid .case-card:last-child:nth-child(3n + 1) {
+    grid-column: auto;
   }
 
   .capability-list article {
